@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: appka
-        image: bootstrap-demo-kubernetes-api:1.3.3.7
-        imagePullPolicy: Never
+        image: lightbend-docker-registry.bintray.io/bootstrap-demo-kubernetes-api:1.3.3.7
+        imagePullPolicy: IfNotPresent
         readinessProbe:
           httpGet:
             path: /ready
@@ -61,7 +61,7 @@ subjects:
 # Note the `name` line below. The first default refers to the namespace. The second refers to the service account name.
 # For instance, `name: system:serviceaccount:myns:default` would refer to the default service account in namespace `myns`
 - kind: User
-  name: system:serviceaccount:default:default
+  name: system:serviceaccount:lightbend:default
 roleRef:
   kind: Role
   name: pod-reader

@@ -1,0 +1,22 @@
+apiVersion: app.lightbend.com/v1alpha1
+kind: AkkaCluster
+metadata:
+  name: appka-op
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+      - name: appka-op
+        image: lightbend-docker-registry.bintray.io/bootstrap-demo-operator:1.3.3.7
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          tcpSocket:
+            port: 8558
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: remoting
+          containerPort: 2552
+        - name: management
+          containerPort: 8558
