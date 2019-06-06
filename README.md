@@ -22,6 +22,12 @@ Then akka-cluster.yml should be sufficient to deploy a 2-node Akka Cluster:
 
     kubectl apply -f kubernetes/akka-cluster.yml
 
+
+### Demo Hack
+    `docker tag bootstrap-demo-kubernetes-api:1.3.3.7 lightbend-docker-registry.bintray.io/bootstrap-demo-operator:1.3.3.7`
+
+    `docker push  lightbend-docker-registry.bintray.io/bootstrap-demo-operator:1.3.3.7`
+
 ## How it works
 
 This example uses [Akka Cluster Bootstrap](https://developer.lightbend.com/docs/akka-management/current/bootstrap/index.html)
